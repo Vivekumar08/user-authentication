@@ -17,7 +17,7 @@ app.use(bodyParser.json({ limit: "50mb", strict: false }));
 app.use(bodyParser.urlencoded({ limit: "50mb", extended: true, parameterLimit:50000 }));
 app.use(cors());
 app.use(db.connectToDatabase);
-app.use('/', routes);
+app.use('/api/v1/', routes);
 
 const portNumber = process.env.PORT; 
 app.listen(portNumber, (err) => {

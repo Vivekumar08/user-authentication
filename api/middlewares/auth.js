@@ -1,8 +1,7 @@
 const jwt = require("jsonwebtoken");
 const { responseHandler } = require("../middlewares/response-handler")
 const refreshTokenService = require("../service/auth/refreshToken");
-require("config")
-
+require('dotenv').config();
 
 exports.verifyRefreshToken = async (req, res, next) => {
     try {
