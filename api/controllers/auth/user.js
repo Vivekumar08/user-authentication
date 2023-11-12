@@ -19,6 +19,18 @@ exports.signup = async (req, res, next) => {
     }
 }
 
+exports.getUser = async (req, res, next) => {
+    try {
+        const { userId } = req.user
+        const data = await service.findOne({ _id: userId })
+        delete data._doc["password"]
+        responseHandler(data, res);
+    } catch (err) {
+        console.error(err);
+        next(err);
+    }
+}
+
 exports.login = async (req, res, next) => {
     try {
 
